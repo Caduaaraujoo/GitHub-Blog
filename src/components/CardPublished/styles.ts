@@ -15,8 +15,12 @@ export const Container = styled.article`
     }
 
     @media (max-width: 1000px){
-       width: 700px;
+       width: 42.4rem;
 
+    }
+
+    :hover{
+        border: 1px solid ${props => props.theme.base_label};
     }
 `
 

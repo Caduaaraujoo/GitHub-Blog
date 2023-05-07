@@ -50,6 +50,12 @@ export const Header = styled.header`
             text-transform: uppercase;
         }
     }
+
+    & .hover_link{
+        &:hover{
+            border-bottom: 1px solid ${props => props.theme.blue};
+        }
+    }
 `
 
 export const DescriptionProfile = styled.article`

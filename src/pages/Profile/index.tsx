@@ -1,6 +1,7 @@
 import { CardProfile } from "../../components/CardProfile";
 import { CardPublished } from "../../components/CardPublished";
-import { Container, ContainerSection, ContainerHeader, Published } from './styles';
+import { SearchBar } from "../../components/SearchBar";
+import { Container, ContainerSection, ContainerHeader, Published, InfoPublished } from './styles';
 
 export function Profile() {
     return (
@@ -9,6 +10,11 @@ export function Profile() {
                 <CardProfile />
             </ContainerHeader>
             <ContainerSection>
+                <InfoPublished>
+                    <h1>Publicações</h1>
+                    <span>6 publicações</span>
+                </InfoPublished>
+                <SearchBar />
                 <Published>
                     <CardPublished />
                     <CardPublished />

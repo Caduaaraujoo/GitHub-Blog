@@ -14,7 +14,7 @@ export function CardProfile() {
             <ContainerInformation>
                 <Header>
                     <h1>Carlos Araujo</h1>
-                    <NavLink to='https://github.com/Caduaaraujoo'>
+                    <NavLink to='https://github.com/Caduaaraujoo' className={"hover_link"}>
                         <span>github</span>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='xs' />
                     </NavLink>
