@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from 'react-router-dom'
 
 export const Container = styled.article`
     display: flex;
@@ -12,6 +13,9 @@ export const Container = styled.article`
 
     p{
         overflow: auto;
+        ::-webkit-scrollbar{
+        display: none;
+    }
     }
 
     @media (max-width: 1000px){
@@ -22,6 +26,7 @@ export const Container = styled.article`
     :hover{
         border: 1px solid ${props => props.theme.base_label};
     }
+
 `
 
 export const ContainerHeader = styled.div`
@@ -42,4 +47,8 @@ export const ContainerHeader = styled.div`
         line-height: 160%;
         color: ${props => props.theme.base_span};
     }
+`
+
+export const ContainerNavLink = styled(NavLink)`
+    all: unset;
 `

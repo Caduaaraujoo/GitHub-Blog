@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div` 
     height: 36rem;
     overflow: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const ContainerHeader = styled.div`
