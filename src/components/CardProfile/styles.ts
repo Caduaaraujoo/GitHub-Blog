@@ -23,10 +23,11 @@ export const Container = styled.section`
 export const ContainerInformation = styled.div`
     display: flex;
     flex-direction: column;
-
-    `
+    width: 100%;
+`
 export const Header = styled.header`
     display: flex;
+    width: auto;
     justify-content: space-between;
 
     h1{

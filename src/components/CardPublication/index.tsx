@@ -3,8 +3,14 @@ import { faArrowUpRightFromSquare, faCalendarDay, faChevronLeft, faComment } fro
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import { Container, Header, NavFooter } from './styles';
+import { GitHubContext } from '../../context/contextGitHub'
+import { useContext, useEffect } from 'react';
 
 export function CardPublication() {
+    const { name } = useContext(GitHubContext)
+
+    useEffect(() => { console.log(name) }, [])
+
     return (
         <Container>
             <Header>

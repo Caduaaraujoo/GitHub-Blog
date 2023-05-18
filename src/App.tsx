@@ -3,6 +3,7 @@ import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
 import { Router } from "./Router";
 import { BrowserRouter } from "react-router-dom";
+import { GitHubProvider } from './context/contextGitHub'
 
 export function App() {
 
@@ -10,7 +11,9 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <BrowserRouter>
-        <Router />
+        <GitHubProvider>
+          <Router />
+        </GitHubProvider>
       </BrowserRouter>
     </ThemeProvider>
   )
