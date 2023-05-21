@@ -24,7 +24,8 @@ export const ContainerSection = styled.section`
 `
 
 export const Published = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin: 2rem;
     

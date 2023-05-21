@@ -1,26 +1,30 @@
-import { Container, ContainerHeader, ContainerNavLink } from './styles'
+import { useContext, useEffect, useState } from 'react'
+import { IContentIssue } from '../../interfaces/IContentIssue'
+import { Container, ContainerHeader, ContainerNavLink, Markdown } from './styles'
+import { GitHubContext } from '../../context/contextGitHub'
 
-
-export function CardPublished() {
-
-    function handleClick() {
-        console.log('aqui')
-    }
-
+export function CardPublished({ title, body, updated_at, contentComplet }: IContentIssue) {
+    const [contenTitleMarkdown, setContentTitleMarkdown] = useState('')
+    const { handlePublication } = useContext(GitHubContext)
+    const [publicationDate, setPublicationDate] = useState<string>('')
+    useEffect(() => {
+        setContentTitleMarkdown(body.split('##')[0])
+        const date = new Date(updated_at)
+        setPublicationDate(date.toLocaleDateString("pt-BR"));
+    }, [])
 
     return (
         <ContainerNavLink to='http://localhost:5173/publicacao' className={"hover_link"}>
-            <Container onClick={handleClick}>
+            <Container onClick={() => handlePublication(contentComplet)}>
                 <ContainerHeader>
                     <h1>
-                        JavaScript data types and data structures
+                        {title}
                     </h1>
-                    <span>Há 1 dia</span>
+                    <span>{publicationDate}</span>
                 </ContainerHeader>
-                <p>
-                    Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-                </p>
+                <Markdown children={contenTitleMarkdown} />
             </Container>
         </ContainerNavLink>
     )
 }
+

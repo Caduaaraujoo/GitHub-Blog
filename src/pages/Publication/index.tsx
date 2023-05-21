@@ -1,33 +1,32 @@
+import { useContext } from "react";
+import ReactMarkdown from 'react-markdown';
+import { CodeComponent } from 'react-markdown/lib/ast-to-react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { CardPublication } from "../../components/CardPublication";
-import { Container, ContainerArticle, SectionExampleCode } from "./styles";
+import { GitHubContext } from '../../context/contextGitHub';
+import { Container, ContainerArticle } from "./styles";
+
+const Component: CodeComponent = ({ children }) => {
+    return (
+        <SyntaxHighlighter language="javascript" style={a11yDark}>
+            {children}
+        </SyntaxHighlighter>
+    );
+};
 
 export function Publication() {
+    const { publication } = useContext(GitHubContext)
     return (
         <Container>
-            <CardPublication />
+            <CardPublication content={publication} />
             <ContainerArticle>
-                <p>
-                    <span>Programming languages all have built-in data structures, but these often differ from one language to another</span>. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-                </p>
-                <p>
-                    <span>Dynamic typing</span><br />
-                    JavaScript is a loosely typed and dynamic language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:
-                </p>
+                {publication &&
+                    <ReactMarkdown children={publication.body} components={{
+                        code: Component
+                    }} />
+                }
             </ContainerArticle>
-            <SectionExampleCode>
-                <div>
-                    <p><span className="const">let</span> foo = <span className="atribbute">42</span></p>
-                    <p className="comment">// foo is now a number</p>
-                </div>
-                <div>
-                    <p>foo = <span className="atribbute">'bar'</span></p>
-                    <p className="comment">// foo is now a string</p>
-                </div>
-                <div>
-                    <p>foo = <span className="atribbute">true</span></p>
-                    <p className="comment">// foo is now a boolean</p>
-                </div>
-            </SectionExampleCode>
         </Container >
     )
 }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 
 export const Container = styled.article`
     display: flex;
@@ -11,13 +12,6 @@ export const Container = styled.article`
     border-radius: 10px;
     background-color: ${props => props.theme.base_post};
 
-    p{
-        overflow: auto;
-        ::-webkit-scrollbar{
-        display: none;
-    }
-    }
-
     @media (max-width: 1000px){
        width: 42.4rem;
 
@@ -27,6 +21,13 @@ export const Container = styled.article`
         border: 1px solid ${props => props.theme.base_label};
     }
 
+`
+
+export const Markdown = styled(ReactMarkdown)`
+    overflow: auto;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 `
 
 export const ContainerHeader = styled.div`
